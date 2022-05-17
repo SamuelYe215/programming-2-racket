@@ -54,6 +54,7 @@ class Pipe(pygame.sprite.Sprite):
             self.image,
             (150, 500),
         )
+
         # Rect
         self.rect = self.image.get_rect()
         self.rect.center = 0, random_height()
@@ -63,6 +64,15 @@ class Pipe(pygame.sprite.Sprite):
     def update(self):
         """Change the ycoord by yvel"""
         self.rect.x += self.xvel
+
+class BG(pygame.sprite.Sprite):
+    def __init__ (self):
+        super().__init__()
+
+        self.image = pygame.image.load("./assets/bg.png")
+        self.image = pygame.transform.scale(self.image, (800, 600))
+
+        self.rect = self.image.get_rect()
 
 def random_height():
     y = (
@@ -74,10 +84,13 @@ def main():
     pygame.init()
 
     bird = Bird()
+    bg = BG()
 
     player_sprites_group = pygame.sprite.Group()
     player_sprites_group.add(bird)
     obstacle_sprites_group = pygame.sprite.Group()
+    bg_sprites_group = pygame.sprite.Group()
+    bg_sprites_group.add(bg)
 
 
     for i in range(100):
@@ -117,6 +130,7 @@ def main():
         obstacle_sprites_group.update()
         # ----- RENDER
         screen.fill(BLACK)
+        bg_sprites_group.draw(screen)
         player_sprites_group.draw(screen)
         obstacle_sprites_group.draw(screen)
 
