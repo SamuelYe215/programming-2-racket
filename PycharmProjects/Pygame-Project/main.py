@@ -11,6 +11,8 @@ WIDTH = 800
 HEIGHT = 600
 TITLE = "Flappy Bird"
 
+
+
 class Bird(pygame.sprite.Sprite):
     def __init__(self):
         # Call superclass constructor
@@ -76,7 +78,7 @@ class BG(pygame.sprite.Sprite):
 
 def random_height():
     y = (
-        random.randrange(350, 600)
+        random.randrange(450, 800)
     )
     return y
 
@@ -84,12 +86,17 @@ def main():
     pygame.init()
 
     bird = Bird()
+
     bg = BG()
 
     player_sprites_group = pygame.sprite.Group()
+
     player_sprites_group.add(bird)
+
     obstacle_sprites_group = pygame.sprite.Group()
+
     bg_sprites_group = pygame.sprite.Group()
+
     bg_sprites_group.add(bg)
 
 
@@ -114,6 +121,8 @@ def main():
     # ----- LOCAL VARIABLES
     done = False
     clock = pygame.time.Clock()
+    score = 0
+    font = pygame.font.Font("./assets/Roboto-2/Roboto-Black.ttf", 50)
 
     # ----- MAIN LOOP
     while not done:
@@ -128,11 +137,26 @@ def main():
         # ----- LOGIC
         player_sprites_group.update()
         obstacle_sprites_group.update()
+
+        collided_enemy = pygame.sprite.spritecollide(
+            pipe,
+            player_sprites_group,
+            dokill=True
+        )
+
+        collided_enemy = pygame.sprite.spritecollide(
+            toppipe,
+            player_sprites_group,
+            dokill=True
+        )
         # ----- RENDER
         screen.fill(BLACK)
         bg_sprites_group.draw(screen)
         player_sprites_group.draw(screen)
         obstacle_sprites_group.draw(screen)
+
+        text = font.render(f"{score}", True, WHITE)
+        screen.blit(text, (100, 50))
 
         # ----- UPDATE DISPLAY
         pygame.display.flip()

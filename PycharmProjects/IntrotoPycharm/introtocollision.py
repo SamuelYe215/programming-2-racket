@@ -148,9 +148,12 @@ def main():
             dokill=True
         )
 
-        if len(collided_treasure) > 0:
-            coin_sound.play()
-            score += 1
+        # if len(collided_enemy) > 0:
+        #     player_health -= 1
+        #
+        # if len(collided_treasure) > 0:
+        #     coin_sound.play()
+        #     score += 1
 
         # Iterate through all collided treasure
         for treasure in collided_treasure:
@@ -169,6 +172,9 @@ def main():
 
         text = font.render(f"{score}", True, WHITE)
         screen.blit(text, (50, 50))
+
+        text = font.render(f"{player_health}", True, WHITE)
+        screen.blit(text, (100, 50))
 
         # ----- UPDATE DISPLAY
         pygame.display.flip()
