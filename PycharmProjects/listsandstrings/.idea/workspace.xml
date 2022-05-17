@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4905bf3e-cf38-45f2-bc8d-788b6fc99c50" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../IntrotoPycharm/firstfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IntrotoPycharm/introtostrings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pygame-Project/assets/Flappybird.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pygame-Project/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Pygame-Project/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

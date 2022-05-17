@@ -74,12 +74,6 @@ def main():
         # Add the snow object to the snow sprites group
         snow_sprites.add(snow)
 
-        # Create smaller snow
-        snow = Snow(random.choice([2, 5]))
-        snow.rect.center = random_coords()
-        snow.yvel = random.choice([1, 2])
-        snow_sprites.add(snow)
-
     # ----- MAIN LOOP
     while not done:
         # -- Event Handler
